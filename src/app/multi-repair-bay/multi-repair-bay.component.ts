@@ -3,11 +3,11 @@ import { FormGroup, FormBuilder, FormArray, FormControl } from '@angular/forms';
 import { SelectItem } from 'primeng/api';
 
 @Component({
-  selector: 'app-multi-repair-bay-config',
-  templateUrl: './multi-repair-bay-config.component.html',
-  styleUrls: ['./multi-repair-bay-config.component.scss']
+  selector: 'app-multi-repair-bay',
+  templateUrl: './multi-repair-bay.component.html',
+  styleUrls: ['./multi-repair-bay.component.scss']
 })
-export class MultiRepairBayConfigComponent implements OnInit {
+export class MultiRepairBayComponent implements OnInit {
 
 scrollableCols: any[] = [];
   frozenCols: any[] = [];
