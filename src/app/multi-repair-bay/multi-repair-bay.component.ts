@@ -5,25 +5,24 @@ import { SelectItem } from 'primeng/api';
 @Component({
   selector: 'app-multi-repair-bay',
   templateUrl: './multi-repair-bay.component.html',
-  styleUrls: ['./multi-repair-bay.component.scss']
+  styleUrls: ['./multi-repair-bay.component.css']
 })
 export class MultiRepairBayComponent implements OnInit {
-
-scrollableCols: any[] = [];
+  public repairBayConfigForm: FormGroup;
+  scrollableCols: any[] = [];
   frozenCols: any[] = [];
   repairBayCounts: SelectItem[] = [];
   tempCount: any = 1;
   bayItemArray: SelectItem[] = [];
 
   constructor(
-     private formBuilder: FormBuilder,
-     public  repairBayConfigForm: FormGroup) {
-      this.repairBayConfigForm = this.formBuilder.group({
-        tableRowArray: this.formBuilder.array([
-          this.createTableRow(),
-          this.createTableRow()
-        ])
-      });
+    private formBuilder: FormBuilder) {
+    this.repairBayConfigng sForm = this.formBuilder.group({
+      tableRowArray: this.formBuilder.array([
+        this.createTableRow(),
+        this.createTableRow()
+      ])
+    });
     this.createForm();
   }
 
@@ -44,22 +43,22 @@ scrollableCols: any[] = [];
     ];
 
     this.bayItemArray = [
-      { label: 'Repair Bay1', value:1  },
-      { label: 'Repair Bay2', value:2  },
-      { label: 'Repair Bay3', value:3  },
-      { label: 'Repair Bay4', value:4  },
-      { label: 'Repair Bay5', value:5  },
-      { label: 'Repair Bay6', value:6  },
-      { label: 'Repair Bay7', value:7  },
-      { label: 'Repair Bay8', value:8  },
-      { label: 'Repair Bay9', value:9  },
-      { label: 'Repair Bay10', value:10  },
-      { label: 'Repair Bay11', value:11  },
-      { label: 'Repair Bay12', value:12 },
-      { label: 'Repair Bay13', value:13  },
-      { label: 'Repair Bay14', value:14  },
-      { label: 'Repair Bay15', value:15  },
-      { label: 'Repair Bay16', value:16  }
+      { label: 'Repair Bay1', value: 1 },
+      { label: 'Repair Bay2', value: 2 },
+      { label: 'Repair Bay3', value: 3 },
+      { label: 'Repair Bay4', value: 4 },
+      { label: 'Repair Bay5', value: 5 },
+      { label: 'Repair Bay6', value: 6 },
+      { label: 'Repair Bay7', value: 7 },
+      { label: 'Repair Bay8', value: 8 },
+      { label: 'Repair Bay9', value: 9 },
+      { label: 'Repair Bay10', value: 10 },
+      { label: 'Repair Bay11', value: 11 },
+      { label: 'Repair Bay12', value: 12 },
+      { label: 'Repair Bay13', value: 13 },
+      { label: 'Repair Bay14', value: 14 },
+      { label: 'Repair Bay15', value: 15 },
+      { label: 'Repair Bay16', value: 16 }
     ];
 
 
@@ -115,7 +114,7 @@ scrollableCols: any[] = [];
   private createTableRow(): FormGroup {
     this.tempCount = this.tempCount + 1;
     return this.formBuilder.group({
-      bayId:1347,
+      bayId: 1347,
       editor: null,
       isLive: new FormControl({ value: true }),
       andonName: new FormControl('Andon ' + this.tempCount, { validators: [] }),

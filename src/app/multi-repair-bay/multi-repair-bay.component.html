@@ -65,7 +65,7 @@
                                             <p-cellEditor>
                                                 <ng-template pTemplate="input">
                                                     <select formControlName="bayCount"
-                                                        (change)="updateBayItemControlsArray(rowIndex, $event.target.value)">
+                                                        (change)="updateBayItemControlsArray(rowIndex, 2)">
                                                         <option *ngFor="let count of repairBayCounts"
                                                             [value]="count.value">
                                                             {{count.label}}
@@ -88,7 +88,7 @@
                                         <td [formGroupName]="bayIndex">
                                             <p-cellEditor>
                                                 <ng-template pTemplate="input">
-                                                    <select [formControl]="bay">
+                                                   <select >  <!-- [formControl]="bay" -->
                                                         <option *ngFor="let bayItem of bayItemArray"
                                                             [value]="bayItem.value">
                                                             {{bayItem.label}}
