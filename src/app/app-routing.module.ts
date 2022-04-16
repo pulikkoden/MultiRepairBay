@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { MultiRepairBayComponent } from './multi-repair-bay/multi-repair-bay.component';
+import { MultiRepaiBayConfigComponent } from './multi-repai-bay-config/multi-repai-bay-config.component';
 
 const routes: Routes = [
-  {path:'multirepairBay', component:MultiRepairBayComponent}
+  {path:'multirepairbay', component:MultiRepaiBayConfigComponent}
 ];
 
 @NgModule({
