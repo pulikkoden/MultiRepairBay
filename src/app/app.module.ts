@@ -25,15 +25,13 @@ import { InputTextModule } from 'primeng/inputtext';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { MultiRepairBayComponent } from './multi-repair-bay/multi-repair-bay.component';
 import { TableModule } from 'primeng/table';
-import { MultiRepaiBayConfigComponent } from './multi-repai-bay-config/multi-repai-bay-config.component';
+import { MultiRepairBayConfigComponent } from './multi-repair-bay-config/multi-repai-bay-config.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    MultiRepairBayComponent,
-    MultiRepaiBayConfigComponent
+    MultiRepairBayConfigComponent
   ],
   imports: [
     BrowserModule,

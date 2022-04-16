@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, FormArray, FormControl, Validators } from '@angular/forms';
 import { SelectItem } from 'primeng/api';
-import { DataService } from 'src/app/services/data.service';
 
 @Component({
   selector: 'app-multi-repair-bay-config',
@@ -9,21 +8,21 @@ import { DataService } from 'src/app/services/data.service';
   styleUrls: ['./multi-repair-bay-config.component.css']
 })
 export class MultiRepairBayConfigComponent implements OnInit {
-  private  repairBayConfigForm: FormGroup;
-scrollableCols: any[];
+  private repairBayConfigForm: FormGroup;
+  scrollableCols: any[];
   frozenCols: any[];
   repairBayCounts: SelectItem[] = [];
   tempCount: any = 1;
   bayItemArray: SelectItem[] = [];
 
-  constructor(public dataService: DataService,
-     private formBuilder: FormBuilder) {
-      this.repairBayConfigForm = this.formBuilder.group({
-        tableRowArray: this.formBuilder.array([
-          this.createTableRow(),
-          this.createTableRow()
-        ])
-      });
+  constructor(
+    private formBuilder: FormBuilder) {
+    this.repairBayConfigForm = this.formBuilder.group({
+      tableRowArray: this.formBuilder.array([
+        this.createTableRow(),
+        this.createTableRow()
+      ])
+    });
     this.createForm();
   }
 
@@ -43,10 +42,12 @@ scrollableCols: any[];
       { label: '12', value: 12 }
     ];
 
-    this.dataService.getRepairBayZones().subscribe(repairBayZones => {
-			console.log('repair Bay zones -> ', repairBayZones);
-      this.bayItemArray = repairBayZones.map((zone) =>{ return { label: zone.zoneName, value: zone.zoneId }});   
-		});
+    this.bayItemArray = [
+      { label: "Bay 1", value:1  },
+      { label: "Bay 2", value:2  },
+      { label: "Bay 3", value:3  },
+      { label: "Bay 4", value:4  }
+    ];
 
     this.scrollableCols = [
       { field: 'bay1', header: 'Bay 1', bayType: 'bay' },
@@ -100,7 +101,7 @@ scrollableCols: any[];
   private createTableRow(): FormGroup {
     this.tempCount = this.tempCount + 1;
     return this.formBuilder.group({
-      bayId:1347,
+      bayId: 1347,
       editor: null,
       isLive: new FormControl({ value: true }),
       andonName: new FormControl('Andon ' + this.tempCount, { validators: [] }),
